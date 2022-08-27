@@ -5,21 +5,21 @@
 class GoZpl < Formula
   desc "A CLI tool for conversion of ZPL files."
   homepage "https://github.com/kamilturek/go-zpl"
-  version "0.0.6"
+  version "0.1.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/kamilturek/go-zpl/releases/download/v0.0.6/go-zpl_0.0.6_Darwin_arm64.tar.gz"
-      sha256 "e7fae1bb515fa48e6ff7b25a47421a02d45d5ef19142457ce24879c908844f90"
+    if Hardware::CPU.intel?
+      url "https://github.com/kamilturek/go-zpl/releases/download/v0.1.0/go-zpl_0.1.0_Darwin_x86_64.tar.gz"
+      sha256 "2d1c80b472dd06ec5b52b982483c7a49b4a9f51dd4e481967bbb2a66c7197f66"
 
       def install
         bin.install "go-zpl"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/kamilturek/go-zpl/releases/download/v0.0.6/go-zpl_0.0.6_Darwin_x86_64.tar.gz"
-      sha256 "16f555e4903f9fefb0a3195763c0362666d1ab50e2b3f522738be1417ebd5c60"
+    if Hardware::CPU.arm?
+      url "https://github.com/kamilturek/go-zpl/releases/download/v0.1.0/go-zpl_0.1.0_Darwin_arm64.tar.gz"
+      sha256 "f1db7d5c25ad009c489d7203c131423e8a7a2904acdc077c615c94f887181fcc"
 
       def install
         bin.install "go-zpl"
@@ -28,17 +28,17 @@ class GoZpl < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/kamilturek/go-zpl/releases/download/v0.0.6/go-zpl_0.0.6_Linux_x86_64.tar.gz"
-      sha256 "f1bfe882a8b33c9a9e1b475528473827fd633334c40a1d30862b2fc2371da8bd"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/kamilturek/go-zpl/releases/download/v0.1.0/go-zpl_0.1.0_Linux_arm64.tar.gz"
+      sha256 "6920dc5c366ef5b7a54576897bff12db29d5b6f04453836ecfa7a82035bcb7b9"
 
       def install
         bin.install "go-zpl"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/kamilturek/go-zpl/releases/download/v0.0.6/go-zpl_0.0.6_Linux_arm64.tar.gz"
-      sha256 "45436de46bd1d85ff2278dd9b87d797ba0b28a2a29c541bad95486c3f8601527"
+    if Hardware::CPU.intel?
+      url "https://github.com/kamilturek/go-zpl/releases/download/v0.1.0/go-zpl_0.1.0_Linux_x86_64.tar.gz"
+      sha256 "1d0410aee2185411790778f69228663ef21f30fba9004d5cf42ca22b586cf09b"
 
       def install
         bin.install "go-zpl"
